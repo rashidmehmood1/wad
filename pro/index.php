@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-$con = mysqli_connect("localhost","root","","tech_box_db");
+         $con = mysqli_connect("localhost","root","","wattoo");
 ?>
 <html lang="en">
 <head>
@@ -68,14 +68,12 @@ $con = mysqli_connect("localhost","root","","tech_box_db");
                 </a>
                 <ul class="collapse show list-unstyled" id="homeSubmenu">
                     <?php
-                    $getCatsQuery = "select * from categories";
-                    $getCatsResult = mysqli_query($con,$getCatsQuery);
-                    while($row = mysqli_fetch_assoc($getCatsResult)){
-                        $cat_id = $row['cat_id'];
-                        $cat_title = $row['cat_title'];
-                        echo "<li><a class='nav-link'  href='#'>$cat_title</a></li>";
-                    }
+                        $result = mysqli_query($con,"select * from catagory");
+                        while ($row = mysqli_fetch_assoc($result)){
+                            echo "<li><a class='nav-link'  href='#'>".$row['cat_title']."</a></li>";
+                        }
                     ?>
+
                 </ul>
             </li>
             <li class="active">
@@ -85,14 +83,12 @@ $con = mysqli_connect("localhost","root","","tech_box_db");
                 </a>
                 <ul class="collapse show list-unstyled" id="pageSubmenu">
                     <?php
-                        $getBrandsQuery = "select * from brands";
-                        $getBrandsResult = mysqli_query($con,$getBrandsQuery);
-                        while($row = mysqli_fetch_assoc($getBrandsResult)){
-                            $brand_id = $row['brand_id'];
-                            $brand_title = $row['brand_title'];
-                            echo "<li><a class='nav-link'  href='#'>$brand_title</a></li>";
-                        }
+                    $result = mysqli_query($con,"select * from brand_title");
+                    while ($row = mysqli_fetch_assoc($result)){
+                        echo "<li><a class='nav-link'  href='#'>".$row['brand_title']."</a></li>";
+                    }
                     ?>
+
                 </ul>
             </li>
             <li>
